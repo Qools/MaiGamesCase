@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,27 +16,31 @@ public class PlayerController : MonoBehaviour
 
     public float xClamp;
     public float mouseSensitivity;
+    public float movementSpeed;
 
     public bool isMoving;
     private float initPosY;
 
     private void Start()
     {
-        isMoving = true;
-
         initPosY = rb.position.y;
+
+        moveDirection = Vector3.zero;
     }
 
-    //private void OnEnable()
-    //{
-    //    LetterBox.OnCheckComplete += Continue;
+    private void OnEnable()
+    {
+        EventSystem.OnStageEnter += Stop;
+        EventSystem.OnStageExit += Continue;
+        EventSystem.OnStartGame += OnGameStart;
+    }
 
-    //}
-
-    //private void OnDisable()
-    //{
-    //    LetterBox.OnCheckComplete -= Continue;
-    //}
+    private void OnDisable()
+    {
+        EventSystem.OnStageEnter -= Stop;
+        EventSystem.OnStageExit -= Continue;
+        EventSystem.OnStartGame -= OnGameStart;
+    }
 
     void FixedUpdate()
     {
@@ -83,5 +88,11 @@ public class PlayerController : MonoBehaviour
     public void Continue()
     {
         isMoving = true;
+    }
+
+    private void OnGameStart()
+    {
+        isMoving = true;
+        moveDirection = new Vector3(0f, 0f, movementSpeed);
     }
 }

@@ -10,4 +10,10 @@ public static class EventSystem
 
     public static Action OnNewLevelLoad;
     public static void CallNewLevelLoad() => OnNewLevelLoad?.Invoke();
+
+    public static Action OnStageEnter;
+    public static void CallStageEnter() => OnStageEnter?.Invoke();
+
+    public static Action OnStageExit;
+    public static void CallStageExit() => OnStageExit?.Invoke();
 }
