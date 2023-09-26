@@ -9,6 +9,7 @@ public class StageController : MonoBehaviour
 
     [SerializeField] private Transform elevator;
     [SerializeField] private Collider stageTriggerCollider;
+    [SerializeField] private Collider elvetorCollider;
 
     [SerializeField] private Transform rightGate;
     [SerializeField] private Transform leftGate;
@@ -56,6 +57,8 @@ public class StageController : MonoBehaviour
 
     private void RiseElevator()
     {
+        elvetorCollider.enabled = false;
+
         elevator.DOMoveY(0f, 2f).OnComplete(()=> EventSystem.CallStageExit());
     }
 

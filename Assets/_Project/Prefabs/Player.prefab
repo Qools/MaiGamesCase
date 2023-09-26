@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 8671665162823369216}
   moveDirection: {x: 0, y: 0, z: 0}
-  xClamp: 5
+  xClamp: 4
   mouseSensitivity: 0.01
   movementSpeed: 7
   isMoving: 0
@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bf75f4433cd272488bff6192c1e8884, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.45
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bf75f4433cd272488bff6192c1e8884, type: 3}
       propertyPath: m_LocalPosition.z

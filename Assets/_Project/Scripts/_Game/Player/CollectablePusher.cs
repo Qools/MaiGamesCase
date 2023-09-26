@@ -9,6 +9,13 @@ public class CollectablePusher : MonoBehaviour
 
     [SerializeField] private float pushForce;
 
+    private float pusherStarPosition;
+
+    private void Start()
+    {
+        pusherStarPosition = pusher.localPosition.y;
+    }
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Rigidbody rigidbody = hit.collider.attachedRigidbody;
@@ -26,13 +33,20 @@ public class CollectablePusher : MonoBehaviour
         pusher.DOLocalMoveY(-1f, 1.5f);
     }
 
+    private void ResetPusherPosition()
+    {
+        pusher.DOLocalMoveY(pusherStarPosition, 0.1f);
+    }
+
     private void OnEnable()
     {
         EventSystem.OnStageEnter += Push;
+        EventSystem.OnStageExit += ResetPusherPosition;
     }
 
     private void OnDisable()
     {
         EventSystem.OnStageEnter -= Push;
+        EventSystem.OnStageExit -= ResetPusherPosition;
     }
 }

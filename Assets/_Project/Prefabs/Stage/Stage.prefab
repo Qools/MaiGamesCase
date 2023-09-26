@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 2984103624810252831}
   - component: {fileID: 3890789937345102205}
   - component: {fileID: 846786831714243318}
-  - component: {fileID: 5986757586582198840}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RightSideRoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,27 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5986757586582198840
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009184333517640182}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2350024603765661689
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,8 +335,7 @@ GameObject:
   - component: {fileID: 6360422039175301519}
   - component: {fileID: 2038986894108316588}
   - component: {fileID: 840891939993801288}
-  - component: {fileID: 7108699375199133216}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LeftSideRoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,27 +407,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7108699375199133216
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4680029963134004606}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6706228984706299443
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +523,7 @@ GameObject:
   - component: {fileID: 3935464710215021147}
   - component: {fileID: 348519300676289911}
   - component: {fileID: 4668057446256400043}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,6 +567,7 @@ MonoBehaviour:
   collectableCounter: {fileID: 834792036159256481}
   elevator: {fileID: 1354613149890158087}
   stageTriggerCollider: {fileID: 4668057446256400043}
+  elvetorCollider: {fileID: 3505848082139647515}
   rightGate: {fileID: 869151054228319828}
   leftGate: {fileID: 6004438353165519773}
   timeToCollect: 5
