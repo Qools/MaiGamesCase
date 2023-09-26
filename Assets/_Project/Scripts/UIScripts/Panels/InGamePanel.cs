@@ -5,6 +5,7 @@ using TMPro;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class InGamePanel : UIPanel
 {
@@ -14,7 +15,7 @@ public class InGamePanel : UIPanel
     [SerializeField] private Transform stagesParent;
 
     [SerializeField] private GameObject stageUIPrefab;
-    private List<GameObject> stagesUI;
+    private List<GameObject> stagesUI = new List<GameObject>();
 
     private int currentStage;
 
@@ -28,8 +29,7 @@ public class InGamePanel : UIPanel
 
     public override void OnEnable()
     {
-        canvasGroup = GetComponent<CanvasGroup>();
-        stagesUI = new List<GameObject>();
+        base.OnEnable();
 
         currentStage = 0;
 
@@ -47,15 +47,18 @@ public class InGamePanel : UIPanel
     {
         currentStage = 0;
 
-        ClearStagesUI();
-        FillStagesUI();
+        DOVirtual.DelayedCall(0.1f, () =>
+        {
+            ClearStagesUI();
+            FillStagesUI();
+        });
     }
 
     private void ClearStagesUI()
     {
         foreach (var stage in stagesUI)
         {
-            Destroy(stage.gameObject);
+            Destroy(stage);
         }
 
         stagesUI = new List<GameObject>();
@@ -63,9 +66,7 @@ public class InGamePanel : UIPanel
 
     private void FillStagesUI()
     {
-        var _stages = FindObjectsOfType<StageController>();
-
-        for (int i = 0; i < _stages.Length; i++)
+        for (int i = 0; i < GameController.Instance.stages.Count; i++)
         {
             var temp = Instantiate(stageUIPrefab, stagesParent);
 
@@ -75,9 +76,10 @@ public class InGamePanel : UIPanel
 
     private void OnStageExit()
     {
-        currentStage = 0;
-
-        stagesUI[currentStage].GetComponent<Image>().color = Color.grey;
+        if (stagesUI.Count > 0)
+        {
+            stagesUI[currentStage].GetComponent<Image>().color = Color.grey;
+        }
 
         currentStage++;
     }

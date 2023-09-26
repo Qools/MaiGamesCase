@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GameController : Singleton<GameController>
 { 
 
+    public List<StageController> stages = new List<StageController>();
+
     public void Init()
     { 
         SetStatus(Status.ready);
@@ -24,6 +26,6 @@ public class GameController : Singleton<GameController>
 
     private void OnNewLevelLoad()
     {
-
+        stages = new List<StageController>();
     }
 }

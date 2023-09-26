@@ -18,6 +18,16 @@ public class StageController : MonoBehaviour
     private bool isCompleted = true;
     private bool waitForCollectables = false;
 
+    private void OnEnable()
+    {
+        EventSystem.OnNewLevelLoad += OnNewLevelLoad;
+    }
+
+    private void OnDisable()
+    {
+        EventSystem.OnNewLevelLoad -= OnNewLevelLoad;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(PlayerPrefKeys.player))
@@ -71,5 +81,10 @@ public class StageController : MonoBehaviour
     private void WaitForCollectables()
     {
         waitForCollectables = true;
+    }
+
+    private void OnNewLevelLoad()
+    {
+        GameController.Instance.stages.Add(this);
     }
 }

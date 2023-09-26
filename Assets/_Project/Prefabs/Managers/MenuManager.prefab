@@ -2190,6 +2190,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7820256851443108841}
     m_Modifications:
+    - target: {fileID: 4714469744851793407, guid: b640e8182c36c9a4aa569814033de940, type: 3}
+      propertyPath: m_StartCorner
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4897558851990194172, guid: b640e8182c36c9a4aa569814033de940, type: 3}
       propertyPath: m_Name
       value: Stages
