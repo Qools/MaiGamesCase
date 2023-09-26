@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,6 @@ using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
-
-    public BoxCollider bottomCollider;
 
     public Vector3 moveDirection;
     private Vector3 initMousePos;
@@ -44,14 +43,18 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isMoving)
+        if (!isMoving)
         {
-            rb.velocity = moveDirection;
-            if (rb.position.y != initPosY)
-            {
-                rb.MovePosition(new Vector3(rb.position.x, initPosY, rb.position.z));
-            }
+            rb.velocity = Vector3.zero;
+            return;
         }
+
+        rb.velocity = moveDirection;
+        if (rb.position.y != initPosY)
+        {
+            rb.MovePosition(new Vector3(rb.position.x, initPosY, rb.position.z));
+        }
+
         else
         {
             rb.velocity = Vector3.zero;
@@ -92,7 +95,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnGameStart()
     {
-        isMoving = true;
-        moveDirection = new Vector3(0f, 0f, movementSpeed);
+        DOVirtual.DelayedCall(0.5f, () =>
+        {
+            isMoving = true;
+            moveDirection = new Vector3(0f, 0f, movementSpeed);
+        });
     }
 }

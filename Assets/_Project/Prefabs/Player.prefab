@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8671665162823369216}
-  bottomCollider: {fileID: 0}
-  moveDirection: {x: 0, y: 0, z: 3}
+  moveDirection: {x: 0, y: 0, z: 0}
   xClamp: 5
   mouseSensitivity: 0.01
   movementSpeed: 7
@@ -118,7 +117,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 1, z: 3}
+  m_Size: {x: 2, y: 1, z: 3}
   m_Center: {x: 0, y: 0, z: 1.25}
 --- !u!1001 &221577449632413253
 PrefabInstance:
@@ -134,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bf75f4433cd272488bff6192c1e8884, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.2
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bf75f4433cd272488bff6192c1e8884, type: 3}
       propertyPath: m_LocalPosition.z

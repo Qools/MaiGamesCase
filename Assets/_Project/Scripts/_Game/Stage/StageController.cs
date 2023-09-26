@@ -5,20 +5,17 @@ using DG.Tweening;
 
 public class StageController : MonoBehaviour
 {
+    [SerializeField] private CollectableCounter collectableCounter;
 
     [SerializeField] private Transform elevator;
+    [SerializeField] private Collider stageTriggerCollider;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Transform rightGate;
+    [SerializeField] private Transform leftGate;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private float timeToCollect;
+    private bool isCompleted = true;
+    private bool waitForCollectables = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,7 +23,7 @@ public class StageController : MonoBehaviour
         {
             EventSystem.CallStageEnter();
 
-            //DOVirtual.DelayedCall(2f, RiseElevator);
+            DOVirtual.DelayedCall(timeToCollect, () => WaitForCollectables());
         }
     }
 
@@ -34,12 +31,42 @@ public class StageController : MonoBehaviour
     {
         if (other.CompareTag(PlayerPrefKeys.player))
         {
-            
+            CheckCollectables();
+        }
+    }
+
+    private void CheckCollectables()
+    {
+        if (collectableCounter.collectedCollectable >= collectableCounter.requiredCollectable)
+        {
+            if (isCompleted)
+            {
+                RiseElevator();
+                OpenGates();
+
+                isCompleted = false;
+                stageTriggerCollider.enabled = false;
+            }
+        }
+        else if (waitForCollectables && collectableCounter.collectedCollectable < collectableCounter.requiredCollectable)
+        {
+            EventSystem.CallGameOver(GameResult.Lose);
         }
     }
 
     private void RiseElevator()
     {
-        elevator.DOMoveY(0f, 2f);
+        elevator.DOMoveY(0f, 2f).OnComplete(()=> EventSystem.CallStageExit());
+    }
+
+    private void OpenGates()
+    {
+        rightGate.DORotate(Vector3.zero, 2f);
+        leftGate.DORotate(Vector3.zero, 2f);
+    }
+
+    private void WaitForCollectables()
+    {
+        waitForCollectables = true;
     }
 }

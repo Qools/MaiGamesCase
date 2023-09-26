@@ -7,7 +7,7 @@ public class CollectableCounter : MonoBehaviour
 {
     [SerializeField] private TextMeshPro collectableText;
 
-    [SerializeField] private int requiredCollectable;
+    public int requiredCollectable;
     public int collectedCollectable;
 
     private void Start()
