@@ -28,15 +28,15 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            Win();
-        }
+        //    if (Input.GetKeyDown(KeyCode.W))
+        //    {
+        //        Win();
+        //    }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            //GameOver();
-        }
+        //    if (Input.GetKeyDown(KeyCode.Q))
+        //    {
+        //        GameOver();
+        //    }
     }
 
     private void OnEnable()

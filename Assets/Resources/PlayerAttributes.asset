@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6c0f011667086c4e93a424f0d8f020c, type: 3}
-  m_Name: LevelList
+  m_Script: {fileID: 11500000, guid: 3b62f75534b78a34b8c5e79237216e60, type: 3}
+  m_Name: PlayerAttributes
   m_EditorClassIdentifier: 
-  all:
-  - {fileID: 6957009568854955512, guid: 20e6833f379720b48b987c3867cb86fb, type: 3}
-  - {fileID: 6957009568854955512, guid: b1de4c5613aee454b8261a1aac077a36, type: 3}
+  xClamp: 4
+  mouseSensitivity: 0.01
+  movementSpeed: 7

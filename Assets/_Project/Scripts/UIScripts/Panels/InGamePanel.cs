@@ -9,6 +9,8 @@ using DG.Tweening;
 
 public class InGamePanel : UIPanel
 {
+    [SerializeField] private Color stageCompletedColor;
+
     public TextMeshProUGUI currentLevelText;
     public TextMeshProUGUI nextLevelText;
 
@@ -78,7 +80,7 @@ public class InGamePanel : UIPanel
     {
         if (stagesUI.Count > 0)
         {
-            stagesUI[currentStage].GetComponent<Image>().color = Color.grey;
+            stagesUI[currentStage].GetComponent<Image>().color = stageCompletedColor;
         }
 
         currentStage++;

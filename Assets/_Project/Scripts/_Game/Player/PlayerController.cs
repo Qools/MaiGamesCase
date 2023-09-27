@@ -13,9 +13,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 initPos;
     private Vector3 moveVector;
 
-    public float xClamp;
-    public float mouseSensitivity;
-    public float movementSpeed;
+    [SerializeField] private PlayerAttributes playerAttributes;
 
     public bool isMoving;
     private float initPosY;
@@ -76,9 +74,9 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 currentMousePos = Input.mousePosition;
 
-        moveVector = (currentMousePos - initMousePos) * mouseSensitivity;
+        moveVector = (currentMousePos - initMousePos) * playerAttributes.mouseSensitivity;
 
-        float clampedX = Mathf.Clamp(initPos.x + moveVector.x, -xClamp, xClamp);
+        float clampedX = Mathf.Clamp(initPos.x + moveVector.x, -playerAttributes.xClamp, playerAttributes.xClamp);
 
         rb.MovePosition(Vector3.Lerp(rb.position, new Vector3(clampedX, rb.position.y, rb.position.z), Time.fixedDeltaTime * 10f));
     }
@@ -98,7 +96,7 @@ public class PlayerController : MonoBehaviour
         DOVirtual.DelayedCall(0.5f, () =>
         {
             isMoving = true;
-            moveDirection = new Vector3(0f, 0f, movementSpeed);
+            moveDirection = new Vector3(0f, 0f, playerAttributes.movementSpeed);
         });
     }
 }
