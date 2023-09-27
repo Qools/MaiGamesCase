@@ -16,4 +16,7 @@ public static class EventSystem
 
     public static Action OnStageExit;
     public static void CallStageExit() => OnStageExit?.Invoke();
+
+    public static Action OnPowerUpPickUp;
+    public static void CallPowerUpPickeUp() => OnPowerUpPickUp?.Invoke();
 }

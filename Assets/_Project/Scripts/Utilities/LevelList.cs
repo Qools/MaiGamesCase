@@ -10,6 +10,16 @@ public class LevelList : ScriptableObject
     public GameObject LoopLevelsByIndex(int _level)
     {
         int index = (_level - 1 >= 0) ? (_level - 1) % all.Count : ((_level - 1) % all.Count) + all.Count;
+        //if (_level < all.Count)
+        //{
+        //    index = (_level - 1 >= 0) ? (_level - 1) % all.Count : ((_level - 1) % all.Count) + all.Count;
+        //}
+
+        //else
+        //{
+        //    index = Random.Range(0, all.Count);
+        //}
+
 
         return all[index];
     }

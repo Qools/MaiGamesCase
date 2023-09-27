@@ -8,4 +8,6 @@ public class PlayerAttributes : ScriptableObject
     public float xClamp;
     public float mouseSensitivity;
     public float movementSpeed;
+
+    public float powerUpTime;
 }

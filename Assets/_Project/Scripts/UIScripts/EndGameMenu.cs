@@ -48,7 +48,7 @@ public class EndGameMenu : UIPanel
     {
         nextLevelButton.gameObject.SetActive(true);
 
-        endGameText.text = "Level " + (DataManager.Instance.GetLevel() - 1).ToString() + " Completed";
+        endGameText.text = "Level " + (DataManager.Instance.GetLevel()).ToString() + " Completed";
     }
 
     private void GameOver()

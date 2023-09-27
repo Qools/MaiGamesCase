@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -83,6 +84,20 @@ public class GameManager : Singleton<GameManager>
         EventSystem.CallNewLevelLoad();
 
         MenuManager.Instance.SwitchPanel<StartMenu>();     
+    }
+
+    public void ReloadCurrentLevel(GameObject _currentLevel)
+    {
+        if (currentLevel != null)
+        {
+            Destroy(currentLevel.gameObject);
+        }
+
+        currentLevel = Instantiate(currentLevel);
+
+        EventSystem.CallNewLevelLoad();
+
+        MenuManager.Instance.SwitchPanel<StartMenu>();
     }
 
     public void Win()

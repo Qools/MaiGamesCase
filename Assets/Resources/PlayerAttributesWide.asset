@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b62f75534b78a34b8c5e79237216e60, type: 3}
-  m_Name: PlayerAttributes
+  m_Name: PlayerAttributesWide
   m_EditorClassIdentifier: 
-  xClamp: 3.75
+  xClamp: 3.25
   mouseSensitivity: 0.01
   movementSpeed: 7
   powerUpTime: 5
